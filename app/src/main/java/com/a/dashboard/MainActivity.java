@@ -6,26 +6,23 @@ import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     ImageView bgapp;
-   Animation bganim;
+    TextView text;
+    Animation bganim;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-         bgapp = (ImageView)findViewById(R.id.bgapp);
+        text =  findViewById(R.id.test);
+        bgapp = findViewById(R.id.img);
         bganim= AnimationUtils.loadAnimation(this, R.anim.bganim);
+        bgapp.animate().translationY(-700).setDuration(800).setStartDelay(300);
 
-        try {
 
-              bgapp.startAnimation(bganim);
-
-        }
-        catch (NullPointerException ignored){
-
-        }
     }
 }
